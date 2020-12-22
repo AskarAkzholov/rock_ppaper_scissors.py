@@ -1,0 +1,33 @@
+import random
+
+
+def score_print(user_score, pc_score):
+    print("user_score", user_score)
+    print("pc_score", pc_score)
+    if user_score == 3:
+        print("user won")
+    elif pc_score == 3:
+        print("pc won")
+
+
+pc_choice = ["r", "sc", "p"]
+user_score = 0
+pc_score = 0
+user_input = input("it is your turn choose r, p, sc or break to stop\n")
+while user_input != "break":
+    pc_input = pc_choice[random.randint(0, 2)]
+    print(pc_input)
+    if user_input == "r" and pc_input == "sc" or user_input == "sc" and pc_input == "p" or user_input == "p" and pc_input == "r":
+        user_score = user_score + 1
+    elif user_input == pc_input:
+        print("draw")
+    else:
+        pc_score += 1
+
+    score_print(user_score, pc_score)
+    if user_score == 3 or pc_score == 3:
+        break
+    else:
+
+        user_input = input("it is your turn choose r, p, sc or break to stop\n")
+        
